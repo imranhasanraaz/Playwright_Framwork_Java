@@ -1,4 +1,4 @@
-# Playwright_Framwork_Java
+# Playwright_Cucumber_Java
 ## Overview
 Welcome to Playwright with Cucumber project! This project leverages the power of Playwright, Cucumber, TestNG, Java, Maven, and Extent Report to automate and test login test of https://www.saucedemo.com. Whether you are a developer, tester, or someone interested in automated testing, this project provides a robust framework to streamline your testing processes.
 
