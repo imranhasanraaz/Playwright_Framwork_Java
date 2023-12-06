@@ -21,7 +21,7 @@ public class PlaywrightDriverFactory {
 
     public Page initDriver(String browserName) {
         BrowserType browserType = null;
-        boolean headless = Boolean.parseBoolean(getProperty("headless"));
+        boolean headless = Boolean.valueOf(getProperty("headless"));
         switch (browserName) {
             case "firefox":
                 browserType = Playwright.create().firefox();
