@@ -10,7 +10,7 @@ import org.testng.annotations.DataProvider;
         plugin = {
                 "pretty",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-                "timeline:test-output-thread/"
+                "rerun:target/rerun.txt"
         }
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
