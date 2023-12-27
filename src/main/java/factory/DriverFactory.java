@@ -4,16 +4,14 @@ import com.microsoft.playwright.*;
 import static utils.WebActions.getProperty;
 
 public class DriverFactory {
-    public Browser browser;
-    public static BrowserContext context;
-    public static Page page;
+    private Browser browser;
 
-    public static ThreadLocal<Page> threadLocalDriver = new ThreadLocal<>(); //For Parallel execution
-    public static ThreadLocal<BrowserContext> threadLocalContext = new ThreadLocal<>();
+    private final static ThreadLocal<Page> threadLocalDriver = new ThreadLocal<>(); //For Parallel execution
+    private final static ThreadLocal<BrowserContext> threadLocalContext = new ThreadLocal<>();
 
     public Page initDriver(String browserName) {
         BrowserType browserType = null;
-        boolean headless = Boolean.valueOf(getProperty("headless"));
+        boolean headless = Boolean.parseBoolean(getProperty("headless"));
         switch (browserName) {
             case "firefox":
                 browserType = Playwright.create().firefox();
@@ -29,9 +27,9 @@ public class DriverFactory {
                 break;
         }
         if (browserType == null) throw new IllegalArgumentException("Could not Launch Browser for type" + browserType);
-        context = browser.newContext();
+        BrowserContext context = browser.newContext();
         context.tracing().start(new Tracing.StartOptions().setScreenshots(true).setSnapshots(true).setSources(false));
-        page = context.newPage();
+        Page page = context.newPage();
         threadLocalDriver.set(page);
         threadLocalContext.set(context);
         return page;
