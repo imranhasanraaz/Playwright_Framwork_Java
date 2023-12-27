@@ -50,4 +50,14 @@ public abstract class WebActions {
         }
         return decodedString;
     }
+
+    public static void clicked(Locator locator){
+        locator.click();
+    }
+    public static void fill(Locator locator, String string){
+        locator.fill(string);
+    }
+    public static String getInnerText(Locator locator){
+        return locator.innerText();
+    }
 }

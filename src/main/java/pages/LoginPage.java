@@ -2,7 +2,9 @@ package pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import static utils.WebActions.getProperty;
+import utils.WebActions;
+import  utils.WebActions.*;
+
 
 
 public class LoginPage {
@@ -23,31 +25,31 @@ public class LoginPage {
     }
 
     public void navigateToUrl() {
-        this.page.navigate(getProperty("url"));
+        this.page.navigate(WebActions.getProperty("url"));
     }
 
     public boolean isLoginPageOpen() {
-        return loginButton.isVisible();
+        return WebActions.waitUntilElementDisplayed(loginButton, Integer.parseInt(WebActions.getProperty("timeout")));
     }
 
     public void setUserName(String user) {
-        userName.fill(user);
-
+        WebActions.fill(userName,user);
     }
 
+
     public void setPassword(String pass) {
-        password.fill(pass);
+        WebActions.fill(password,pass);
     }
 
     public void clickOnLogin() {
-        loginButton.click();
+        WebActions.clicked(loginButton);
     }
 
     public String getProductPageTitle() {
-        return productsTitle.innerText();
+        return WebActions.getInnerText(productsTitle);
     }
 
     public String getErrorMessage() {
-        return error.innerText();
+        return WebActions.getInnerText(error);
     }
 }
