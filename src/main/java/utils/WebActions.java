@@ -1,6 +1,7 @@
 package utils;
 
 import com.microsoft.playwright.Locator;
+
 import java.util.Base64;
 import java.util.Properties;
 
@@ -51,13 +52,15 @@ public abstract class WebActions {
         return decodedString;
     }
 
-    public static void clicked(Locator locator){
+    public static void clicked(Locator locator) {
         locator.click();
     }
-    public static void fill(Locator locator, String string){
+
+    public static void fill(Locator locator, String string) {
         locator.fill(string);
     }
-    public static String getInnerText(Locator locator){
+
+    public static String getInnerText(Locator locator) {
         return locator.innerText();
     }
 }

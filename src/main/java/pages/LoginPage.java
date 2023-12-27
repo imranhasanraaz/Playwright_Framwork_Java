@@ -3,8 +3,6 @@ package pages;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import utils.WebActions;
-import  utils.WebActions.*;
-
 
 
 public class LoginPage {
@@ -33,12 +31,12 @@ public class LoginPage {
     }
 
     public void setUserName(String user) {
-        WebActions.fill(userName,user);
+        WebActions.fill(userName, user);
     }
 
 
     public void setPassword(String pass) {
-        WebActions.fill(password,pass);
+        WebActions.fill(password, pass);
     }
 
     public void clickOnLogin() {
