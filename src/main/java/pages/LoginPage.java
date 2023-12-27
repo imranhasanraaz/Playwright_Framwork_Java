@@ -2,8 +2,8 @@ package pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import static utils.WebActions.getProperty;
 
-import static utilities.ConfigFileReader.getProperty;
 
 public class LoginPage {
     private final Locator userName;
