@@ -106,11 +106,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven.compiler.version}</version>
-        <configuration>
-          <encoding>UTF-8</encoding>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-        </configuration>
       </plugin>
 
       <plugin>
@@ -118,11 +113,9 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven.surefire.version}</version>
         <configuration>
-          <forkCount>3</forkCount>
-          <reuseForks>true</reuseForks>
-          <argLine>-Xmx2048m -XX:MaxPermSize=512m</argLine>
-          <testFailureIgnore>false</testFailureIgnore>
-          <skip>false</skip>
+          <includes>
+            <include>**/*Runner.java</include>
+          </includes>
           <properties>
             <property>
               <name>dataproviderthreadcount</name>
@@ -131,15 +124,15 @@
           </properties>
         </configuration>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-failsafe-plugin</artifactId>
-        <version>${maven.failsafe.version}</version>
-        <configuration>
-          <parallel>methods</parallel>
-          <threadCount>4</threadCount>
-        </configuration>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>3.1.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.12.1</version>
       </plugin>
 
     </plugins>
