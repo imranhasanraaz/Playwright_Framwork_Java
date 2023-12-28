@@ -63,4 +63,7 @@ public abstract class WebActions {
     public static String getInnerText(Locator locator) {
         return locator.innerText();
     }
+    public static void hoverMouseOnElement(Locator locator) {
+        locator.hover();
+    }
 }
